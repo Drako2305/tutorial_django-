@@ -4,10 +4,8 @@ from django.shortcuts import render, HttpResponsePermanentRedirect, get_object_o
 
 # Relative import of forms
 from.models import vehiculo
-from .forms import vehiculoForm
+from .forms import vehiculoForm 
 
-def home_view(request):
-    return render(request, 'vehiclesapp/home.html')
 
 def create_view(request):
     context = {}
@@ -17,12 +15,12 @@ def create_view(request):
         return HttpResponsePermanentRedirect('/')
 
     context['form'] = form
-    return render(request, 'vehiclesapp/create_view.html', context)
+    return render(request, "create_view.html", context)
     
 def list_view(request):
     context = {}
     context['dataset'] = vehiculo.objects.all()
-    return render(request, 'vehiclesapp/list_view.html', context)
+    return render(request, "list_view.html", context)
 
 def update_view(request, id):
     context = {}
@@ -36,7 +34,7 @@ def update_view(request, id):
         return HttpResponsePermanentRedirect('/')
     
     context['form'] = form
-    return render(request, 'vehiclesapp/update_view.html', context)
+    return render(request, "update_view.html", context)
 
 def delete_view(request, id):
     context = {}
@@ -46,4 +44,5 @@ def delete_view(request, id):
         return HttpResponsePermanentRedirect('/')
     
     context['object'] = obj
-    return render(request, 'vehiclesapp/delete_view.html', context)
+   
+    return render(request, "delete_view.html", context)

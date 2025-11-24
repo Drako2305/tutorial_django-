@@ -23,6 +23,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", list_view),
     path("create/", create_view),
-    path("delete/<int:id>/", delete_view),
-    path("update/<int:id>/", update_view),
+    path("delete/<id>/", delete_view),
+    path("update/<id>/", update_view),
 ]
